@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CTF — The Final Flag</title>
+    <style>
+      @font-face {
+        font-family: "GameOfThrones";
+        src: url("./fonts/Game of Thrones.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      :root {
+        --bg: #071018;
+        --accent: #c9b37e;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(180deg, var(--bg), #02060a);
+        color: #efe9dd;
+        font-family: "GameOfThrones", serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3rem;
+        color: var(--accent);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(201, 179, 126, 0.7);
+      }
+
+      .flag {
+        font-family: serif;
+        font-size: 1.5rem;
+        color: #fff;
+        background: #1b1b1b;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 0 15px rgba(201, 179, 126, 0.6);
+      }
+
+      .message {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        color: #efe9dd;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+
+      /* Snowflake styling */
+      .snowflake {
+        position: fixed;
+        top: -10px;
+        color: #fff;
+        font-size: 1em;
+        opacity: 0.8;
+        animation-name: fall;
+        animation-timing-function: linear;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Final Banner</h1>
+
+    <div class="flag">
+      flag{vwzdVJw7TU}
+    </div>
+
+    <div class="message">
+      <p>
+        "Lo, valiant seeker! Thou hast seized the last banner and triumphed in
+        this noble contest. Thy quest is ended, and the halls of eternity shall
+        echo with thy name. Verily, thou hast reached the end of the trial."
+      </p>
+    </div>
+
+    <script>
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.textContent = "❄";
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
+        snowflake.style.fontSize = Math.random() * 6 + 6 + "px";
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, 10000);
+      }
+
+      setInterval(createSnowflake, 300);
+    </script>
+  </body>
+</html>
+
